@@ -1,159 +1,46 @@
-# SkyScript
+# Astro Starter Kit: Basics
 
-[![Built with Astro](https://astro.badg.es/v2/built-with-astro/tiny.svg)](https://astro.build/themes/details/skyscript)
-[![CI](https://github.com/astracms/skyscript/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/astracms/skyscript/actions/workflows/ci.yml)
-
-**SkyScript** is a modern, content-first blog starter built with **Astro v5**, **Tailwind CSS v4**, and **AstraCMS**. Designed for SEO optimization and responsiveness across all devices, it's perfect for personal blogs, company blogs, and content-focused websites.
-
-## Features
-
-- [x] Modern & minimalist design with responsive layout
-- [x] AstraCMS integration for headless content management
-- [x] Static site generation for optimal performance
-- [x] SEO optimization (Open Graph, Twitter Cards, Canonical URLs)
-- [x] Centralized site configuration via `constants.ts`
-- [x] Dynamic meta tags from post content
-- [x] Featured posts and category-based organization
-- [x] Pagination support
-- [x] Author cards and related posts
-- [x] Newsletter subscription component
-- [x] TypeScript support
-- [x] Component-based architecture
-- [x] Tailwind CSS v4 for styling
-- [x] Code quality tools (ESLint & Prettier)
-- [x] View Transitions API support
-- [x] Automatic sitemap generation
-
-![LightRoom Test](/assets/pagespeed-insights.png)
-
-## Project Structure
-
+```sh
+npm create astro@latest -- --template basics
 ```
-SkyScript
+
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+/
 ├── public/
-│   ├── favicon.svg
-│   └── fonts/
-│
-├── src/
-│   ├── components/
-│   │   ├── Head.astro
-│   │   ├── blog/
-│   │   │   ├── AuthorCard.astro
-│   │   │   ├── BlogCard.astro
-│   │   │   ├── BlogNavigation.astro
-│   │   │   ├── FooterBlogCard.astro
-│   │   │   ├── HeroBlogCard.astro
-│   │   │   ├── NewsLatter.astro
-│   │   │   ├── Pagination.astro
-│   │   │   ├── RelatedBlogCard.astro
-│   │   │   ├── StickyActionBar.astro
-│   │   │   └── TagsFooter.astro
-│   │   ├── home/
-│   │   │   ├── BlogRow.astro
-│   │   │   ├── FooterBlogRow.astro
-│   │   │   ├── Hero.astro
-│   │   │   └── PromoCard.astro
-│   │   └── shared/
-│   │       ├── Footer.astro
-│   │       └── Header.astro
-│   │
-│   ├── layouts/
-│   │   ├── BlogLayout.astro
-│   │   └── Layout.astro
-│   │
-│   ├── pages/
-│   │   ├── index.astro
-│   │   ├── [slug].astro
-│   │   └── post/
-│   │       ├── index.astro
-│   │       ├── [slug].astro
-│   │       └── [page].astro
-│   │
-│   ├── styles/
-│   │   └── global.css
-│   │
-│   ├── constants.ts          # Site configuration
-│   └── content.config.ts     # AstraCMS content loader
-│
-├── .gitignore
-├── .prettierrc.mjs
-├── astro.config.mjs
-├── eslint.config.js
-├── tsconfig.json
-├── package.json
-├── LICENSE
-└── README.md
+│   └── favicon.svg
+├── src
+│   ├── assets
+│   │   └── astro.svg
+│   ├── components
+│   │   └── Welcome.astro
+│   ├── layouts
+│   │   └── Layout.astro
+│   └── pages
+│       └── index.astro
+└── package.json
 ```
 
-## Configuration
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
-All site settings are centralized in `src/constants.ts`. Edit this file to customize:
+## 🧞 Commands
 
-```typescript
-// Site Information
-export const SITE_NAME = "SkyScript";
-export const SITE_TITLE = "The Sky Script Blog";
-export const SITE_DESCRIPTION = "Your site description";
-export const SITE_URL = "https://skyscript.com";
+All commands are run from the root of the project, from a terminal:
 
-// SEO & Meta Tags
-export const META_TITLE_TEMPLATE = "%s | SkyScript";
-export const META_AUTHOR = "SkyScript Team";
-export const META_KEYWORDS = ["cloud", "developers", "blog"];
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-// Open Graph / Social
-export const OG_IMAGE = "/og-image.png";
-export const TWITTER_SITE = "@skyscript";
+## 👀 Want to learn more?
 
-// Footer Configuration
-export const FOOTER_NAV_LINKS = [
-  /* ... */
-];
-export const SOCIAL_LINKS = { facebook: "#", twitter: "#" /* ... */ };
-```
-
-## Tech Stack
-
-- [Astro v5](https://astro.build) - Static site generator
-- [AstraCMS](https://astracms.dev) - Headless CMS
-- [TypeScript](https://www.typescriptlang.org/) - Typed JavaScript
-- [Tailwind CSS v4](https://tailwindcss.com/) - Utility-first CSS
-- [ESLint](https://eslint.org/) & [Prettier](https://prettier.io/) - Code quality
-
-## Installation
-
-```bash
-# Clone the project
-git clone <repository-url>
-cd skyscript
-
-# Install dependencies
-pnpm install
-
-# Set up environment variables
-cp .env.example .env
-# Add your ASTRACMS_API_KEY to .env
-
-# Start development server
-pnpm dev
-```
-
-The site will be available at `http://localhost:4321`
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fastracms%2Fskyscript&env=ASTRACMS_API_KEY&envDescription=Add%20your%20ASTRACMS_API_KEY%20%20from%20astracms.dev&envLink=https%3A%2F%2Fapp.astracms.dev)
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com)
-
-## Commands
-
-| Command        | Description                        |
-| -------------- | ---------------------------------- |
-| `pnpm dev`     | Start local development server     |
-| `pnpm build`   | Build production-ready static site |
-| `pnpm preview` | Preview production build locally   |
-| `pnpm lint`    | Lint code with ESLint              |
-| `pnpm format`  | Format code with Prettier          |
-| `pnpm sync`    | Sync Astro content types           |
-
-## License
-
-This project is open source. See [LICENSE](LICENSE) for more information.
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

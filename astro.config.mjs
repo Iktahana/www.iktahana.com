@@ -1,24 +1,5 @@
-import { defineConfig } from "astro/config";
-
-import vercel from "@astrojs/vercel";
-import tailwindcss from "@tailwindcss/vite";
-import sitemap from "@astrojs/sitemap";
-import partytown from "@astrojs/partytown";
+// @ts-check
+import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
-export default defineConfig({
-  site: "https://skyscript.vercel.app",
-  integrations: [
-    sitemap(),
-    partytown({
-      config: {
-        forward: ["dataLayer.push"],
-      },
-    }),
-  ],
-  vite: {
-    plugins: [tailwindcss()],
-  },
-  output: "server",
-  adapter: vercel(),
-});
+export default defineConfig({});
