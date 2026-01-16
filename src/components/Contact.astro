@@ -4,95 +4,54 @@
 
 <section class="contact" id="contact">
 	<div class="container">
-		<!-- お問い合わせ タイトル / Contact Title -->
-		<div class="section-header">
-			<h2 class="section-title">お問い合わせ</h2>
-			<div class="header-line"></div>
-		</div>
-
-		<div class="contact-content">
-			<!-- お問い合わせ フォーム / Contact Form -->
-			<div class="contact-form">
-				<form>
-					<div class="form-group">
-						<input 
-							type="text" 
-							placeholder="お名前" 
-							required
-						/>
-					</div>
-					<div class="form-group">
-						<input 
-							type="email" 
-							placeholder="メールアドレス" 
-							required
-						/>
-					</div>
-					<div class="form-group">
-						<textarea 
-							placeholder="メッセージ" 
-							rows="5"
-							required
-						></textarea>
-					</div>
-					<button type="submit" class="submit-btn">送信</button>
-				</form>
-			</div>
-
-			<!-- 連絡先情報 / Contact Information -->
-			<div class="contact-info">
-				<h3>連絡先</h3>
-				
-				<div class="contact-item">
-					<h4>メール</h4>
-					<p>
-						<a href="mailto:hello@iktahana.com">
-							hello@iktahana.com
-						</a>
-					</p>
-				</div>
-
-				<div class="contact-item">
-					<h4>X (Twitter)</h4>
-					<p>
-						<a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-							@iktahana
-						</a>
-					</p>
-				</div>
-
-				<div class="contact-item">
-					<h4>Weibo</h4>
-					<p>
-						<a href="https://weibo.com" target="_blank" rel="noopener noreferrer">
-							iktahana
-						</a>
-					</p>
-				</div>
-
-				<div class="contact-item">
-					<h4>Instagram</h4>
-					<p>
-						<a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-							iktahana
-						</a>
-					</p>
-				</div>
-
-				<!-- ニュースレター / Newsletter Signup -->
-				<div class="newsletter">
-					<h4>ニュースレター</h4>
-					<p>最新の作品をお知らせします</p>
-					<form class="newsletter-form">
-						<input 
-							type="email" 
-							placeholder="メールアドレス"
-							required
-						/>
-						<button type="submit">→</button>
-					</form>
-				</div>
-			</div>
+		<div class="social-icons">
+			<a href="https://x.com/iktahana" target="_blank" rel="noopener noreferrer" class="social-link">
+				<img src="/social-icons/x-iktahana.min.svg" alt="X" />
+			</a>
+			<a href="https://note.com/iktahana" target="_blank" rel="noopener noreferrer" class="social-link">
+				<img src="/social-icons/note.min.svg" alt="Note" />
+			</a>
 		</div>
 	</div>
 </section>
+
+<style>
+	.social-icons {
+		display: flex;
+		gap: 2rem;
+		justify-content: center;
+		align-items: center;
+		margin: 2rem 0;
+	}
+
+	.social-link {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		height: 3rem;
+		border-radius: 8px;
+		transition: all 0.3s ease;
+	}
+
+	.social-link:hover {
+		opacity: 0.8;
+		transform: translateY(-4px);
+	}
+
+	.social-link img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
+	@media (max-width: 768px) {
+		.social-icons {
+			gap: 1.5rem;
+		}
+
+		.social-link {
+			width: 45px;
+			height: 45px;
+		}
+	}
+</style>
