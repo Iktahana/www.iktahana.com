@@ -1,1 +1,1 @@
-# これはiktahana.comのソースコードです。
+これはiktahana.comのソースコードです。
