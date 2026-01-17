@@ -189,8 +189,7 @@ a {
 }
 
 .btn-secondary:hover {
-	background: #000000;
-	color: #f5f1e8;
+	background: #00000030;
 }
 
 .hero-image {
@@ -543,13 +542,12 @@ a {
 .note-card {
 	background: #ffffff;
 	border: 1px solid #2c2c2c;
-	padding: 2rem;
+	padding: 3vw;
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 	transition: all 0.3s ease;
-	width: 100%;
-	max-width: 200px;
+	width: 15vw;
 }
 
 .note-card:hover {
@@ -640,8 +638,33 @@ a {
 		font-size: 1.8rem;
 	}
 
+	.note-grid {
+		grid-template-columns: 1fr;
+		justify-items: center;
+	}
+
+	.note-card {
+		width: 80vw;
+	}
+
 	.note-pagination {
 		justify-content: center;
+	}
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+	.note-feed {
+		padding: 5rem 2rem;
+	}
+
+	.note-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		justify-items: center;
+	}
+
+	.note-card {
+		width: 40vw;
+		padding: 2.5vw;
 	}
 }
 
