@@ -548,6 +548,8 @@ a {
 	flex-direction: column;
 	gap: 1rem;
 	transition: all 0.3s ease;
+	width: 100%;
+	max-width: 200px;
 }
 
 .note-card:hover {

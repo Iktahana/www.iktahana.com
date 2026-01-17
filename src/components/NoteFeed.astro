@@ -118,7 +118,7 @@ const formattedItems: FeedItemWithLabel[] = feedItems.slice(0, maxItems).map((it
 	const cards = Array.from(document.querySelectorAll('[data-note-card]'));
 	const prevButton = document.querySelector('[data-note-prev]');
 	const nextButton = document.querySelector('[data-note-next]');
-	const perPage = 8;
+	const perPage = 4;
 	let currentPage = 0;
 
 	const renderPage = () => {
