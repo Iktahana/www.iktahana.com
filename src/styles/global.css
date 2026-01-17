@@ -502,6 +502,148 @@ a {
 }
 
 /* ======================
+   NOTE FEED SECTION
+   ====================== */
+
+.note-feed {
+	padding: 6rem 2rem;
+	background-color: #f5f1e8;
+}
+
+.note-feed .container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.note-feed .section-header {
+	margin-bottom: 3rem;
+}
+
+.note-feed .section-title {
+	font-size: 2.2rem;
+	margin: 0;
+	color: #2c2c2c;
+	font-weight: 400;
+	letter-spacing: 0.5px;
+}
+
+.note-feed .header-line {
+	width: 60px;
+	height: 1px;
+	background: #000000;
+	margin-top: 1rem;
+}
+
+.note-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 2rem;
+}
+
+.note-card {
+	background: #ffffff;
+	border: 1px solid #2c2c2c;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	transition: all 0.3s ease;
+}
+
+.note-card:hover {
+	border-color: #000000;
+	transform: translateY(-3px);
+}
+
+.note-card h3 {
+	margin: 0;
+	font-size: 1.2rem;
+	color: #2c2c2c;
+	font-weight: 400;
+}
+
+.note-date {
+	margin: 0;
+	font-size: 0.8rem;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	color: #2c2c2c;
+	opacity: 0.7;
+}
+
+.note-description {
+	margin: 0;
+	font-size: 0.95rem;
+	color: #2c2c2c;
+	line-height: 1.6;
+}
+
+.note-link {
+	color: #000000;
+	font-weight: 500;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 0.9rem;
+	letter-spacing: 0.5px;
+	margin-top: auto;
+	transition: all 0.3s ease;
+}
+
+.note-link:hover {
+	gap: 1rem;
+}
+
+.note-pagination {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-top: 2rem;
+}
+
+.note-arrow {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	border: 1px solid #000000;
+	background: transparent;
+	color: #000000;
+	font-size: 1.2rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.note-arrow:hover {
+	background: #000000;
+	color: #f5f1e8;
+}
+
+.note-arrow:disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+
+.note-empty {
+	margin: 0;
+	font-size: 0.95rem;
+	color: #2c2c2c;
+}
+
+@media (max-width: 768px) {
+	.note-feed {
+		padding: 4rem 1rem;
+	}
+
+	.note-feed .section-title {
+		font-size: 1.8rem;
+	}
+
+	.note-pagination {
+		justify-content: center;
+	}
+}
+
+/* ======================
    CONTACT SECTION
    ====================== */
 
@@ -741,7 +883,7 @@ a {
 	gap: 2rem;
 	margin-bottom: 2rem;
 	padding-bottom: 2rem;
-	border-bottom: 1px solid #ffffff;
+	border-bottom: 1px solid #ffffff23;
 }
 
 .footer-section h4 {
