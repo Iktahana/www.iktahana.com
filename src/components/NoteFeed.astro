@@ -1,6 +1,6 @@
 ---
 const rssUrl = 'https://note.com/iktahana/rss';
-const maxItems = 5;
+const itemsPerPage = 4;
 
 type FeedItem = {
 	title: string;
@@ -61,7 +61,7 @@ try {
 	feedItems = [];
 }
 
-const formattedItems: FeedItemWithLabel[] = feedItems.slice(0, maxItems).map((item) => ({
+const formattedItems: FeedItemWithLabel[] = feedItems.map((item) => ({
 	...item,
 	description: item.description ? truncateText(item.description, 200) : '',
 	dateLabel:
@@ -73,6 +73,10 @@ const formattedItems: FeedItemWithLabel[] = feedItems.slice(0, maxItems).map((it
 			})
 			: '',
 }));
+
+const visibleCount = Math.floor(formattedItems.length / itemsPerPage) * itemsPerPage;
+const visibleItems = formattedItems.slice(0, visibleCount);
+
 ---
 
 <section class="note-feed" id="note">
@@ -81,11 +85,17 @@ const formattedItems: FeedItemWithLabel[] = feedItems.slice(0, maxItems).map((it
 			<h2 class="section-title">Note 最新記事</h2>
 			<div class="header-line"></div>
 		</div>
-		{formattedItems.length ? (
+		{visibleItems.length ? (
 			<>
 				<div class="note-grid" data-note-grid>
-					{formattedItems.map((item, index) => (
-						<article class="note-card" data-note-card data-index={index}>
+					{visibleItems.map((item, index) => (
+						<article
+							class="note-card"
+							data-note-card
+							data-index={index}
+							hidden={index >= itemsPerPage}
+						>
+
 							<h3>
 								<a href={item.link} target="_blank" rel="noopener noreferrer">
 									{item.title}
@@ -118,16 +128,20 @@ const formattedItems: FeedItemWithLabel[] = feedItems.slice(0, maxItems).map((it
 	const cards = Array.from(document.querySelectorAll('[data-note-card]'));
 	const prevButton = document.querySelector('[data-note-prev]');
 	const nextButton = document.querySelector('[data-note-next]');
+	const grid = document.querySelector('[data-note-grid]');
 	const perPage = 4;
+	const fadeDuration = 240;
 	let currentPage = 0;
 
 	const renderPage = () => {
-		const totalPages = Math.max(1, Math.ceil(cards.length / perPage));
+		const displayCount = Math.floor(cards.length / perPage) * perPage;
+		const totalPages = Math.max(1, Math.ceil(displayCount / perPage));
 		const start = currentPage * perPage;
 		const end = start + perPage;
 
 		cards.forEach((card, index) => {
-			card.style.display = index >= start && index < end ? 'flex' : 'none';
+			const shouldShow = index >= start && index < end && index < displayCount;
+			card.toggleAttribute('hidden', !shouldShow);
 		});
 
 		if (prevButton) {
@@ -138,15 +152,29 @@ const formattedItems: FeedItemWithLabel[] = feedItems.slice(0, maxItems).map((it
 		}
 	};
 
+	const animateToPage = (nextPage) => {
+		if (!grid) {
+			currentPage = nextPage;
+			renderPage();
+			return;
+		}
+
+		grid.classList.add('is-fading');
+		window.setTimeout(() => {
+			currentPage = nextPage;
+			renderPage();
+			grid.classList.remove('is-fading');
+		}, fadeDuration);
+	};
+
 	if (prevButton && nextButton) {
 		prevButton.addEventListener('click', () => {
-			currentPage = Math.max(0, currentPage - 1);
-			renderPage();
+			animateToPage(Math.max(0, currentPage - 1));
 		});
 		nextButton.addEventListener('click', () => {
-			const totalPages = Math.max(1, Math.ceil(cards.length / perPage));
-			currentPage = Math.min(totalPages - 1, currentPage + 1);
-			renderPage();
+			const displayCount = Math.floor(cards.length / perPage) * perPage;
+			const totalPages = Math.max(1, Math.ceil(displayCount / perPage));
+			animateToPage(Math.min(totalPages - 1, currentPage + 1));
 		});
 	}
 
